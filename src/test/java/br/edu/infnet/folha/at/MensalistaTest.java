@@ -24,7 +24,7 @@ public class MensalistaTest {
         postConnection.setRequestProperty("Content-Type", "application/json");
         postConnection.setDoOutput(true);
 
-        String jsonBody = "{\"matricula\":123,\"nome\":\"Carlos Souza\",\"cargo\":\"Pesquisador\",\"salario\":2500.0}";
+        String jsonBody = "{\"matricula\":123,\"nome\":\"Carlos Augusto\",\"cargo\":\"Pesquisador\",\"salario\":2500.0}";
 
         try (OutputStream os = postConnection.getOutputStream()) {
             byte[] input = jsonBody.getBytes("utf-8");
@@ -42,7 +42,7 @@ public class MensalistaTest {
         String responseBody = in.readLine();
         in.close();
 
-        assertEquals(true, responseBody.contains("Carlos Souza"));
+        assertEquals(true, responseBody.contains("Carlos Augusto"));
 
         app.stop();
     }

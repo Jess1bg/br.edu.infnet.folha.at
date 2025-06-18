@@ -52,7 +52,7 @@ public class AppTest {
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setDoOutput(true);
 
-        String jsonBody = "{\"matricula\":123,\"nome\":\"Carlos Souza\",\"cargo\":\"Pesquisador\",\"salario\":2500.0}";
+        String jsonBody = "{\"matricula\":123,\"nome\":\"Carlos Augusto\",\"cargo\":\"Pesquisador\",\"salario\":2500.0}";
 
         try (OutputStream os = connection.getOutputStream()) {
             byte[] input = jsonBody.getBytes(StandardCharsets.UTF_8);
@@ -64,7 +64,7 @@ public class AppTest {
         try (BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8))) {
             String responseBody = in.readLine();
             assertNotNull(responseBody);
-            assertTrue(responseBody.contains("\"nome\":\"Carlos Souza\""));
+            assertTrue(responseBody.contains("\"nome\":\"Carlos Augusto\""));
             assertTrue(responseBody.contains("\"matricula\":123"));
         }
     }
@@ -85,7 +85,6 @@ public class AppTest {
 
         assertEquals(201, postConn.getResponseCode());
 
-        // Agora busca
         URL getUrl = new URL("http://localhost:" + port + "/mensalista/456");
         HttpURLConnection getConn = (HttpURLConnection) getUrl.openConnection();
         getConn.setRequestMethod("GET");

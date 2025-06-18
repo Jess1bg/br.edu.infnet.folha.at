@@ -7,11 +7,9 @@ public class Mensalista {
     private String cargo;
     private double salario;
 
-    // Construtor vazio obrigatório para desserialização JSON
     public Mensalista() {
     }
 
-    // Construtor com parâmetros
     public Mensalista(long matricula, String nome, String cargo, double salario) {
         this.matricula = matricula;
         this.nome = nome;

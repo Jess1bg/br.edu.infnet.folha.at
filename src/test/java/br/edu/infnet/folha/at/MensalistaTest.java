@@ -15,7 +15,7 @@ public class MensalistaTest {
     void deveCriarEBuscarMensalista() throws Exception {
         Javalin app = Javalin.create();
         new MensalistaController(app);
-        app.start(0); // porta dinâmica
+        app.start(0);
         int port = app.port();
 
         URL postUrl = new URL("http://localhost:" + port + "/mensalista");
